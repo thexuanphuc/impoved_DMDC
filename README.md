@@ -6,7 +6,7 @@
 
 + apply POD, then use DMDc inside new coordinate systems to avoid the divergence in prediction
 
-+ plot compute time for dmdc, improved dmdc, alternative dmdc
++ compare compute time for dmdc, improved dmdc, alternative dmdc with implementation in pydmd
 
 + write Readme.md
 
