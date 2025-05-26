@@ -156,16 +156,16 @@ def Standard_DMDC(X_data: np.ndarray, U_control: np.ndarray, rank_p: int, rank_r
     r = min(rank_r, len(Sy))
 
     bar_U = U_hat[:, :r]
-
+    inv_S_p = np.linalg.inv(np.diag(S_p))
     # 4: Compute reduced approximations of A and B
-    bar_A = bar_U.T @ Y @ V_p @ np.linalg.inv(S_p) @ U1_p.T @ bar_U
-    bar_B = bar_U.T @ Y @ V_p @ np.linalg.inv(S_p) @ U2_p.T
+    bar_A = bar_U.T @ Y @ V_p @ inv_S_p @ U1_p.T @ bar_U
+    bar_B = bar_U.T @ Y @ V_p @ inv_S_p @ U2_p.T
 
     # 5: Eigen decomposition of reduced transition matrix bar_A
     Lamda_a, W_a = np.linalg.eig(bar_A)
 
     # 6: Compute DMD modes of original system (aka eigenvectors of original matrix A)
-    Phi = Y @ V_p @ np.linalg.inv(S_p) @ U1_p.T @ bar_U @ W_a  
+    Phi = Y @ V_p @ inv_S_p @ U1_p.T @ bar_U @ W_a  
     elapsed_time = time.time() - start_time  # Calculate elapsed time
     # 7: Reconstruction
     z_k = bar_U.T @ X  # Reduced states z_k = bar_V^T * X
