@@ -1,4 +1,4 @@
-# Improved DMDC Implementation
+![image](https://github.com/user-attachments/assets/85cf624a-b246-4dbe-b398-bf0a15c9d663)# Improved DMDC Implementation
 
 This repository contains an implementation of the improved Dynamic Mode Decomposition with Control (DMDC) algorithm, as described in the paper:
 
@@ -37,13 +37,7 @@ The original DMDC algorithm approximates the models to $\mathbf{x}_{k+1} = A \ma
 
 Data Setup:
 
-+ State snapshots: $X = [\mathbf{x}_0, \mathbf{x}1, \dots, \mathbf{x}_{m-1}]$ ($n \times m$ )
-
-+ Future states: $Y = [\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_m]$ ($n \times m$ )
-
-+ Control inputs: $\Gamma = [\mathbf{u}_0, \mathbf{u}1, \dots, \mathbf{u}_{m-1}]$ ($q \times m$ )
-
-+ Augmented matrix: $\Omega = \begin{bmatrix} X \ \Gamma \end{bmatrix}$($(n+q) \times m$ )
+![Snapshots, sorry we have problem with display markdown on github](https://github.com/user-attachments/assets/efcaac8e-d943-4aec-8a4c-9efabff639f3)
 
 
 Singular Value Decomposition (SVD):
@@ -118,7 +112,7 @@ The alternative DMDC algorithm simplifies computations using a pseudoinverse app
 
 Pseudoinverse Approach:
 
-Compute the Moore-Penrose pseudoinverse of $\Omega$: $$ \Omega^\dagger = [\Omega_1, \Omega_2] $$ 
+Compute the Moore-Penrose pseudoinverse of $\Omega$: $$\Omega^\dagger = [\Omega_1, \Omega_2]$$ 
 
 where $\Omega_1 \in \mathbb{R}^{m \times n}$, $\Omega_2 \in \mathbb{R}^{m \times q}$.
 
@@ -137,7 +131,7 @@ $$ B \approx \bar{B} = Y \Omega_2 $$
 
 Also, we can compute reduced-Order SVD:
 
-Compute SVD of $\Omega_1$: $$ \Omega_1 \approx \tilde{U} \tilde{\Sigma} \tilde{V}^*$$
+Compute SVD of $\Omega_1$: $$\Omega_1 \approx \tilde{U} \tilde{\Sigma} \tilde{V}^*$$
 
  where $\tilde{U} \in \mathbb{R}^{m \times r}$, $\tilde{\Sigma} \in \mathbb{R}^{r \times r}$, $\tilde{V} \in \mathbb{R}^{n \times r}$.
 
