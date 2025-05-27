@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/85cf624a-b246-4dbe-b398-bf0a15c9d663)# Improved DMDC Implementation
+# Improved DMDC Implementation
 
 This repository contains an implementation of the improved Dynamic Mode Decomposition with Control (DMDC) algorithm, as described in the paper:
 
