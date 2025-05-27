@@ -29,7 +29,7 @@ This repository implements an improved version of DMDC, as proposed in the refer
 
 
 
-## Idea
+<!-- ## Idea -->
 
 ## Original DMDC (Algorithm 1)
 
@@ -37,13 +37,13 @@ The original DMDC algorithm approximates the models to $\mathbf{x}_{k+1} = A \ma
 
 Data Setup:
 
-+ State snapshots: $X = [\mathbf{x}_0, \mathbf{x}1, \dots, \mathbf{x}_{m-1}]$($n \times m$ )
++ State snapshots: $X = [\mathbf{x}_0, \mathbf{x}1, \dots, \mathbf{x}_{m-1}]$ ($n \times m$ )
 
-+ Future states: $Y = [\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_m]$($n \times m$ )
++ Future states: $Y = [\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_m]$ ($n \times m$ )
 
-+ Control inputs: $\Gamma = [\mathbf{u}_0, \mathbf{u}1, \dots, \mathbf{u}_{m-1}]$($q \times m$ )
++ Control inputs: $\Gamma = [\mathbf{u}_0, \mathbf{u}1, \dots, \mathbf{u}_{m-1}]$ ($q \times m$ )
 
-+ Augmented matrix: $\Omega = \begin{bmatrix} X \ \Gamma \end{bmatrix}$($(n+q) \times m$ )
++ Augmented matrix: $\Omega = \begin{bmatrix} X \ \Gamma \end{bmatrix}$ ($(n+q) \times m$ )
 
 
 Singular Value Decomposition (SVD):
