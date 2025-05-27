@@ -88,11 +88,11 @@ $$B \approx \tilde{B} = Y \tilde{V} \tilde{\Sigma}^{-1} \tilde{U}_2^*$$
 
 Reduced-Order Model:
 
-Compute SVD of $Y$: $$ Y \approx \hat{U} \hat{\Sigma} \hat{V}^* $$
+We need to have some projection matrix, which is independent from the control input, to represent our dynamics system in a new space. We can take it from column space of matrix $Y$ by computing SVD of $Y$: $$ Y \approx \hat{U} \hat{\Sigma} \hat{V}^* $$
 
 where $\hat{U} \in \mathbb{R}^{n \times r}$, $\hat{\Sigma} \in \mathbb{R}^{r \times r}$, $\hat{V} \in \mathbb{R}^{m \times r}$, and $r$ is the truncation rank.
 
-Project matrices: $$ \tilde{A}_r = \hat{U}^* \tilde{A} \hat{U} \in \mathbb{R}^{r \times r} $$ $$ \tilde{B}_r = \hat{U}^* \tilde{B} \in \mathbb{R}^{r \times q} $$
+Project matrices: $$ \tilde{A}_r = \hat{U}^* \bar{A} \hat{U} \in \mathbb{R}^{r \times r} $$ $$ \tilde{B}_r = \hat{U}^* \bar{B} \in \mathbb{R}^{r \times q} $$
 
 Dynamic Modes:
 
@@ -115,6 +115,7 @@ Compute the Moore-Penrose pseudoinverse of $\Omega$: $$ \Omega^\dagger = [\Omega
 
 where $\Omega_1 \in \mathbb{R}^{m \times n}$, $\Omega_2 \in \mathbb{R}^{m \times q}$.
 
+So the idea is taking different projection matrix to find reduced model. We can extract that matrix from the $\Omega_1$, theoretically it shoud be independent from the input control action. 
 
 
 We can rewrite the matrix $G$ to: 
@@ -134,7 +135,7 @@ Compute SVD of $\Omega_1$: $$ \Omega_1 \approx \tilde{U} \tilde{\Sigma} \tilde{V
  where $\tilde{U} \in \mathbb{R}^{m \times r}$, $\tilde{\Sigma} \in \mathbb{R}^{r \times r}$, $\tilde{V} \in \mathbb{R}^{n \times r}$.
 
 
-Then we can project the original transition matrix A into a new basis, defined by $\tilde{V}$: 
+Then we can project the original transition matrix A into a new basis, defined by $\tilde{V}$ (which means we are projecting onto the row space of $\Omega_1$): 
 $$\bar{A}_r = \tilde{V}^* \bar{A} \tilde{V}$$
 
 $$\bar{B}_r = \tilde{V}^* \bar{B}$$
@@ -148,7 +149,8 @@ DMD modes: $$\Phi = Y \tilde{U} \tilde{\Sigma} W$$
 ## Improved DMDC (Algorithm 3)
 
 
-Truncated SVD of Augmented Matrix:
+This is an improved version of Alternative DMDc. We note that to compute the pseudo-inverse matrix, it is usually necessary to perform some decomposition of the augmented matrix $\Omega$, such as SVD. Therefore, we can skip the pseudo-inverse step and directly extract the projection matrix from the SVD.
+
 
 Compute SVD of $\Omega$: $$ \Omega \approx \tilde{U} \tilde{\Sigma} \tilde{V}^* $$ 
 
@@ -165,11 +167,11 @@ Compute SVD of $\bar{H}$: $$\bar{H} \approx \bar{U} \bar{\Sigma} \bar{V}^* $$
 
 where $\bar{U} \in \mathbb{R}^{p \times r}$, $\bar{\Sigma} \in \mathbb{R}^{r \times r}$, $\bar{V} \in \mathbb{R}^{n \times r}$, and $r \leq \min(p, n)$.
 
-Now the matrix $A$ and $B$ in reduced Model are:
+Up to this point, we have obtained the projection matrix  $\bar{V}$, using just two SVDs, without the need for a pseudo-inverse. Also, the SVD of the matrix $\Omega_1$ is not necessarily unique. Since the ultimate goal is to obtain a projection matrix, it does not matter whether the projection matrix is unique or not. Then, the matrices $A$ and $B$ in the reduced model are:
 
-$$\bar{A}_r = (\tilde{V} \bar{U}) ^*  \bar{A} (\tilde{V} \bar{U})$$
+$$\bar{A}_r = (\bar{V}) ^*  \bar{A} (\bar{V} )$$
 
-$$\bar{B}_r = (\tilde{V} \bar{U})^* \bar{B}$$
+$$\bar{B}_r = (\bar{V})^* \bar{B}$$
 
 
 Then the dynamics mode of the system in new basis are:
