@@ -16,6 +16,19 @@ This repository implements an improved version of DMDC, as proposed in the refer
 + Simplified Structure: The resulting dynamic mode matrices have a simpler structure compared to the standard DMDC approach.
 
 
+## Result
+<!-- for lotka -->
+![Reconstruction model with Improved DMDc and Standard DMDc for Lotka–Volterra model](media/trajectory_lotka_improved.png)
+
+<!-- for lorentz -->
+![Reconstruction model with Improved DMDc and Standard DMDc for Lorentz model](media/trajectory_lorentz_improved.png.png) 
+
+<!-- benchmark time for helmert matrix -->
+
+![Comparision between Improved DMDc and Standard DMDc for Helmert matrix](media/helmert_benchmark.png)
+
+
+
 ## Idea
 
 ## Original DMDC (Algorithm 1)
@@ -172,17 +185,6 @@ $$\Phi = Y \bar{U} \bar{\Sigma} W$$
 
 
 
-
-## Result
-<!-- for lotka -->
-![Reconstruction model with Improved DMDc and Standard DMDc for Lotka–Volterra model](media/trajectory_lotka_improved.png)
-
-<!-- for lorentz -->
-![Reconstruction model with Improved DMDc and Standard DMDc for Lorentz model](media/trajectory_lorentz_improved.png.png) 
-
-<!-- benchmark time for helmert matrix -->
-
-![Comparision between Improved DMDc and Standard DMDc for Helmert matrix](media/helmert_benchmark.png)
 
 
 
