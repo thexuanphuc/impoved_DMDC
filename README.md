@@ -49,7 +49,8 @@ Data Setup:
 Singular Value Decomposition (SVD):
 
 Compute truncated SVD of $\Omega$ :
-$$ \Omega \approx \tilde{U} \tilde{\Sigma} \tilde{V}^*$$ 
+
+$$\Omega \approx \tilde{U} \tilde{\Sigma} \tilde{V}^*$$ 
 
 where 
 
@@ -70,7 +71,9 @@ where
 
 + $G = [A, B] \in \mathbb{R}^{n \times (n+q)}$.
 
-So we can split $$ \tilde{U} = \begin{bmatrix} \tilde{U}_1 \ \tilde{U}_2 \end{bmatrix} $$
+So we can split 
+
+$$\tilde{U} = \begin{bmatrix} \tilde{U}_1 \ \tilde{U}_2 \end{bmatrix}$$
 
 Where:
 
@@ -88,11 +91,15 @@ $$B \approx \tilde{B} = Y \tilde{V} \tilde{\Sigma}^{-1} \tilde{U}_2^*$$
 
 Reduced-Order Model:
 
-We need to have some projection matrix, which is independent from the control input, to represent our dynamics system in a new space. We can take it from column space of matrix $Y$ by computing SVD of $Y$: $$ Y \approx \hat{U} \hat{\Sigma} \hat{V}^* $$
+We need to have some projection matrix, which is independent from the control input, to represent our dynamics system in a new space. We can take it from column space of matrix $Y$ by computing SVD of $Y$: $$Y \approx \hat{U} \hat{\Sigma} \hat{V}^*$$
 
 where $\hat{U} \in \mathbb{R}^{n \times r}$, $\hat{\Sigma} \in \mathbb{R}^{r \times r}$, $\hat{V} \in \mathbb{R}^{m \times r}$, and $r$ is the truncation rank.
 
-Project matrices: $$ \tilde{A}_r = \hat{U}^* \bar{A} \hat{U} \in \mathbb{R}^{r \times r} $$ $$ \tilde{B}_r = \hat{U}^* \bar{B} \in \mathbb{R}^{r \times q} $$
+Project matrices: 
+
+$$\tilde{A}_r = \hat{U}^* \bar{A} \hat{U} \in \mathbb{R}^{r \times r} $$
+
+$$ \tilde{B}_r = \hat{U}^* \bar{B} \in \mathbb{R}^{r \times q}$$
 
 Dynamic Modes:
 
@@ -152,7 +159,7 @@ DMD modes: $$\Phi = Y \tilde{U} \tilde{\Sigma} W$$
 This is an improved version of Alternative DMDc. We note that to compute the pseudo-inverse matrix, it is usually necessary to perform some decomposition of the augmented matrix $\Omega$, such as SVD. Therefore, we can skip the pseudo-inverse step and directly extract the projection matrix from the SVD.
 
 
-Compute SVD of $\Omega$: $$ \Omega \approx \tilde{U} \tilde{\Sigma} \tilde{V}^* $$ 
+Compute SVD of $\Omega$: $\Omega \approx \tilde{U} \tilde{\Sigma} \tilde{V}^*$ 
 
 where $\tilde{U} \in \mathbb{R}^{(n+q) \times p}$, $\tilde{\Sigma} \in \mathbb{R}^{p \times p}$, $\tilde{V} \in \mathbb{R}^{m \times p}$.
 
@@ -161,7 +168,7 @@ Compute pseudoinverse: $$\Omega^\dagger = \tilde{V} \tilde{\Sigma}^{-1} \tilde{U
 
 Lower-Dimensional SVD:
 
-Let $$ \bar{H} = \tilde{\Sigma}^{-1} \tilde{U}_1^* \in \mathbb{R}^{p \times n} $$, where $\tilde{U}_1$ is the truncated first $n$ rows of $\tilde{U}$.
+Let $\bar{H} = \tilde{\Sigma}^{-1} \tilde{U}_1^* \in \mathbb{R}^{p \times n}$, where $\tilde{U}_1$ is the truncated first $n$ rows of $\tilde{U}$.
 
 Compute SVD of $\bar{H}$: $$\bar{H} \approx \bar{U} \bar{\Sigma} \bar{V}^* $$ 
 
@@ -176,9 +183,7 @@ $$\bar{B}_r = (\bar{V})^* \bar{B}$$
 
 Then the dynamics mode of the system in new basis are:
 
-Compute eigenvalues $\Lambda$ and eigenvectors $W$ of $\bar{A}_r$ :
-
-$$\bar{A}_r W = W \Lambda$$
+Compute eigenvalues $\Lambda$ and eigenvectors $W$ of $\bar{A}_r$: $\bar{A}_r W = W \Lambda$
 
 DMD modes:
 
