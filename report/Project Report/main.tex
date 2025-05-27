@@ -175,23 +175,6 @@ The original Lotka–Volterra and Lorenz systems were simulated without control 
     \includegraphics[width=0.45\textwidth]{OLT.png}
    \caption{Relative error (Lotka–Volterra) and Lorenz time series.}
 \end{figure}
-\newpage
-\subsubsection*{Improved DMDc Method}
-
-The improved DMDc algorithm reduces computation using lower-rank SVD while maintaining accuracy. It achieved efficient trajectory reconstruction and stable eigenvalue results on both systems\cite{proctor2018}.
-% Figure 1: Improved Lorenz
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.75\textwidth]{IPROVED LV.png}
-    
-    \vspace{1em}
-    
-    \includegraphics[width=0.75\textwidth]{IMPROVED LORENZ.png}
-    
-    \caption{Improved DMDc results. Top: Lotka–Volterra system showing trajectories, phase portrait, eigenvalues, and DMD modes. Bottom: Lorenz system with corresponding outputs including 3D attractor and eigenvalue distribution.}
-\end{figure}
-
-
 
 \newpage
 \subsubsection*{Alternative Systems}
@@ -211,6 +194,35 @@ The altered Lotka–Volterra and Lorenz systems introduced changes to test the r
     
     \caption{Altered system results. Top: Lotka–Volterra – reconstructed vs true dynamics under modified conditions. Middle and bottom: Lorenz system – controlled dynamics, eigenvalue plot, and time-series of $x_1$, $x_2$, and $x_3$.}
 \end{figure}\\
+
+\newpage
+\subsubsection*{Improved DMDc Method}
+
+The improved DMDc algorithm reduces computation using lower-rank SVD while maintaining accuracy. It achieved efficient trajectory reconstruction and stable eigenvalue results on both systems\cite{proctor2018}.
+% Figure 1: Improved Lorenz
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\textwidth]{IPROVED LV.png}
+    
+    \vspace{1em}    
+    \includegraphics[width=0.75\textwidth]{IPROVED_LV_error_time.png}
+
+    
+    \caption{Improved DMDc results on Lotka–Volterra system showing trajectories, phase portrait, eigenvalues, and DMD modes. Comparison with Standard DMDc}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    
+    \vspace{1em}
+    
+    \includegraphics[width=0.75\textwidth]{IMPROVED LORENZ.png}
+    \vspace{1em}    
+    \includegraphics[width=0.75\textwidth]{IPROVED_Lorenz_error_time.png}
+    \caption{Improved DMDc results on Lorenz system with corresponding outputs including 3D attractor and eigenvalue distribution.Comparison with Standard DMDc}
+\end{figure}
+\\\\
+
 The project code and implementation are available at: 
 \href{https://github.com/thexuanphuc/impoved_DMDC/tree/master}{GitHub Repository}.
 
