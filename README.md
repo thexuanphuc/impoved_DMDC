@@ -43,7 +43,7 @@ Data Setup:
 
 + Control inputs: $\Gamma = [\mathbf{u}_0, \mathbf{u}1, \dots, \mathbf{u}_{m-1}]$ ($q \times m$ )
 
-+ Augmented matrix: $\Omega = \begin{bmatrix} X \ \Gamma \end{bmatrix}$ ($(n+q) \times m$ )
++ Augmented matrix: $\Omega = \begin{bmatrix} X \ \Gamma \end{bmatrix}$($(n+q) \times m$ )
 
 
 Singular Value Decomposition (SVD):
@@ -167,9 +167,9 @@ where $\bar{U} \in \mathbb{R}^{p \times r}$, $\bar{\Sigma} \in \mathbb{R}^{r \ti
 
 Now the matrix $A$ and $B$ in reduced Model are:
 
-$$\bar{A}_r = \bar{V}^* Y \bar{U} \bar{\Sigma}$$
+$$\bar{A}_r = (\tilde{V} \bar{U}) ^*  \bar{A} (\tilde{V} \bar{U})$$
 
-$$\bar{B}_r = \bar{V}^* Y \tilde{V} \tilde{\Sigma}^{-1} \tilde{U}_2^*$$
+$$\bar{B}_r = (\tilde{V} \bar{U})^* \bar{B}$$
 
 
 Then the dynamics mode of the system in new basis are:
