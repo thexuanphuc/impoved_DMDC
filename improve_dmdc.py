@@ -36,7 +36,9 @@ def Improved_DMDc_new(X_data: np.ndarray, U_control: np.ndarray, rank_p: int, ra
     # 1: Get dimensions and Construct snapshot matrices
     state_dim, num_time_steps = X_data.shape
     u_dim, _ = U_control.shape
-    assert num_time_steps == U_control.shape[1] + 1, "X_data and U_control must have the same number of time steps."
+    print("the shape of X_data is: ", X_data.shape)
+    print("the shape of U_control.shape[1] + 1 is: ", U_control.shape[1] + 1)
+    assert num_time_steps == U_control.shape[1] + 1, "X_data and U_control must have the same number of time steps. "
 
     # Construct snapshot matrices
     X = X_data[:, :-1]  # Current states (time k)
@@ -97,7 +99,7 @@ def Improved_DMDc_new(X_data: np.ndarray, U_control: np.ndarray, rank_p: int, ra
 # Standard DMDc (Algorithm 1)
 def Standard_DMDC(X_data: np.ndarray, U_control: np.ndarray, rank_p: int, rank_r: int):
     """
-    Compute Dynamic Mode Decomposition with Control (standard DMDc).
+    Compute Dynamic Mode Decomposition with Control (standard DMDc, we use U matrix as projection matrix).
 
     Parameters:
     - X_data: ndarray of shape (state_dim, num_time_steps)
