@@ -73,7 +73,7 @@ def Improved_DMDc_new(X_data: np.ndarray, U_control: np.ndarray, rank_p: int, ra
     Sh_r = Sh[:r]
     bar_V = Vth.T[:, :r]  # bar_V = V_h
 
-    # Compute bar_U (projection matrix)
+    # Compute bar_U
     bar_U = V_p @ Uh_r  # V_p is m x p, Uh_r is p x r -> m x r
 
     # 4: Compute reduced approximations of A and B
