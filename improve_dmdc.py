@@ -36,8 +36,6 @@ def Improved_DMDc_new(X_data: np.ndarray, U_control: np.ndarray, rank_p: int, ra
     # 1: Get dimensions and Construct snapshot matrices
     state_dim, num_time_steps = X_data.shape
     u_dim, _ = U_control.shape
-    print("the shape of X_data is: ", X_data.shape)
-    print("the shape of U_control.shape[1] + 1 is: ", U_control.shape[1] + 1)
     assert num_time_steps == U_control.shape[1] + 1, "X_data and U_control must have the same number of time steps. "
 
     # Construct snapshot matrices
@@ -160,8 +158,9 @@ def Standard_DMDC(X_data: np.ndarray, U_control: np.ndarray, rank_p: int, rank_r
     bar_U = U_hat[:, :r]
     inv_S_p = np.linalg.inv(np.diag(S_p))
     # 4: Compute reduced approximations of A and B
-    bar_A = bar_U.T @ Y @ V_p @ inv_S_p @ U1_p.T @ bar_U
-    bar_B = bar_U.T @ Y @ V_p @ inv_S_p @ U2_p.T
+    buf_matrix1 = bar_U.T @ Y @ V_p @ inv_S_p
+    bar_A = buf_matrix1 @ U1_p.T @ bar_U
+    bar_B = buf_matrix1 @ U2_p.T
 
     # 5: Eigen decomposition of reduced transition matrix bar_A
     Lamda_a, W_a = np.linalg.eig(bar_A)
