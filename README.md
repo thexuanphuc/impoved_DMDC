@@ -37,8 +37,7 @@ The original DMDC algorithm approximates the models to $\mathbf{x}_{k+1} = A \ma
 
 Data Setup:
 
-![Snapshots, sorry we have problem with display markdown on github](https://github.com/user-attachments/assets/efcaac8e-d943-4aec-8a4c-9efabff639f3)
-
+<img src="https://github.com/user-attachments/assets/efcaac8e-d943-4aec-8a4c-9efabff639f3" alt="Snapshots, sorry we have problem to display these formulas on github" width="300">
 
 Singular Value Decomposition (SVD):
 
